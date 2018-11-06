@@ -1,6 +1,10 @@
-.RatingField {
-  .cell {
-    background-color: "[theme:themePrimary, default:#e5e5e5]";
-    display: 'inline-block';
+.donut {
+  width: 50px;
+  height: 50px;
+
+  text {
+    transform: translateY(.3em);
+    font-weight: 200;
+    font-size: .8em;
   }
 }

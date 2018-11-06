@@ -4,20 +4,9 @@
   "https": true,
   "serveConfigurations": {
     "default": {
-      "pageUrl": "https://contoso.sharepoint.com/sites/mySite/SitePages/myPage.aspx",
+      "pageUrl": "https://orc.sharepoint.com/sites/kyle/Lists/Sales%20Leads/AllItems.aspx",
       "fieldCustomizers": {
-        "InternalFieldName": {
-          "id": "921643b8-5f31-4068-9c71-59085087af2b",
-          "properties": {
-            "sampleText": "Value"
-          }
-        }
-      }
-    },
-    "ratingField": {
-      "pageUrl": "https://contoso.sharepoint.com/sites/mySite/SitePages/myPage.aspx",
-      "fieldCustomizers": {
-        "InternalFieldName": {
+        "Rating": {
           "id": "921643b8-5f31-4068-9c71-59085087af2b",
           "properties": {
             "sampleText": "Value"

@@ -1,7 +1,6 @@
 import * as React from 'react';
 import * as ReactDOM from 'react-dom';
 
-import { Log } from '@microsoft/sp-core-library';
 import { override } from '@microsoft/decorators';
 import {
   BaseFieldCustomizer,
@@ -21,8 +20,6 @@ export interface IRatingFieldFieldCustomizerProperties {
   sampleText?: string;
 }
 
-const LOG_SOURCE: string = 'RatingFieldFieldCustomizer';
-
 export default class RatingFieldFieldCustomizer
   extends BaseFieldCustomizer<IRatingFieldFieldCustomizerProperties> {
 
@@ -30,19 +27,15 @@ export default class RatingFieldFieldCustomizer
   public onInit(): Promise<void> {
     // Add your custom initialization to this method.  The framework will wait
     // for the returned promise to resolve before firing any BaseFieldCustomizer events.
-    Log.info(LOG_SOURCE, 'Activated RatingFieldFieldCustomizer with properties:');
-    Log.info(LOG_SOURCE, JSON.stringify(this.properties, undefined, 2));
-    Log.info(LOG_SOURCE, `The following string should be equal: "RatingFieldFieldCustomizer" and "${strings.Title}"`);
     return Promise.resolve();
   }
 
   @override
   public onRenderCell(event: IFieldCustomizerCellEventParameters): void {
-    // Use this method to perform your custom cell rendering.
-    const text: string = `${this.properties.sampleText}: ${event.fieldValue}`;
-
     const ratingField: React.ReactElement<{}> =
-      React.createElement(RatingField, { text } as IRatingFieldProps);
+      React.createElement(RatingField, {
+        rating: event.fieldValue,
+      } as IRatingFieldProps);
 
     ReactDOM.render(ratingField, event.domElement);
   }
